@@ -8,7 +8,7 @@ Tool to measure "werkgeluk"
 Todo:
 - Send slack.json to Slack (should be renamed to dialog.json)
 - Use Guzzle to send POST request
-- Catch callback from buttons
+- Catch callback from buttons - https://api.slack.com/messaging/interactivity
 - Use Medoo https://medoo.in/api/new to write catches to db (stamped!)
 - Draw results on grafana dashboard 
 
