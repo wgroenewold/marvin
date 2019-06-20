@@ -1,12 +1,9 @@
 <?php
 
-$post = $_POST;
+//Validator for challenge.
+$postdata = file_get_contents('php://input');
+$decode = json_decode($postdata, true);
+if(array_key_exists('challenge', $decode)){
+    var_dump($postdata);
+}
 
-//$decode = json_decode($post, true);
-
-//if(array_key_exists('challenge', $decode)){
-//    header($decode['challenge']);
-//    header('Content-Type: text/plain');
-//}else{
-    var_dump($post);
-//}
