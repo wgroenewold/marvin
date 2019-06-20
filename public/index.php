@@ -1,4 +1,12 @@
 <?php
 
-//when triggered send post request to slack with the content of slack.json
-//catch results of buttons from dialog and store in db
+$post = $_POST;
+
+$decode = json_decode($post, true);
+
+if(array_key_exists('challenge', $decode)){
+    header($decode['challenge']);
+    header('Content-Type: text/plain');
+}else{
+    print_r($decode);
+}
