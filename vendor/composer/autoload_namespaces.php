@@ -6,4 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src'),
+    'Evenement' => array($vendorDir . '/evenement/evenement/src'),
+    'Devristo\\Phpws\\' => array($vendorDir . '/semako/phpws/src'),
 );

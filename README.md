@@ -14,3 +14,15 @@ Todo:
 
 Wish: 
 - Replace MySQL with InfluxDB for better performance/scalability. 
+
+
+
+Eerst aanzetten:
+    https://api.slack.com/apps/AKRSMC3FY/event-subscriptions?
+Daarna moet je voldoen aan de challenge
+    https://api.slack.com/events/url_verification
+Daarom kunnen we niet meer die simpele zooi, maar moeten we iets als:
+    https://inside.getambassador.com/serverless-creating-a-webhook-consumer-in-5-minutes-4136adab06b0    
+        
+    
+
