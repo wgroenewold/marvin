@@ -8,5 +8,5 @@ $post = $_POST;
 //    header($decode['challenge']);
 //    header('Content-Type: text/plain');
 //}else{
-    print_r($post);
+    var_dump($post);
 //}
