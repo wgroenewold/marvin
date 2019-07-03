@@ -1,49 +1,13 @@
 [
   {
-    "type": "section",
-    "text": {
-      "type": "mrkdwn",
-      "text": "Hoe voel jij je vandaag? Maak hieronder je keuze:"
-    }
-  },
-  {
-    "type": "divider"
-  },
-  {
-    "type": "section",
-    "text": {
-      "type": "mrkdwn",
-      "text": "#awesome!!!!11"
+    "type": "image",
+    "title": {
+      "type": "plain_text",
+      "text": "HOW YOU DOIN?",
+      "emoji": true
     },
-    "accessory": {
-      "type": "image",
-      "image_url": "https://media.giphy.com/media/26BRsI63ak8uxsU6Y/200w_d.gif",
-      "alt_text": "#awesome!!!!11"
-    }
-  },
-  {
-    "type": "section",
-    "text": {
-      "type": "mrkdwn",
-      "text": "O-ki-do-ki"
-    },
-    "accessory": {
-      "type": "image",
-      "image_url": "https://media.giphy.com/media/cskbyiTXm3W5XQnH0N/giphy.gif",
-      "alt_text": "O-ki-do-ki"
-    }
-  },
-  {
-    "type": "section",
-    "accessory": {
-      "type": "image",
-      "image_url": "https://media.giphy.com/media/fMvvwdTWamlA4/giphy-downsized.gif",
-      "alt_text": "#wtf #dafuq #idk"
-    },
-    "text": {
-      "type": "mrkdwn",
-      "text": "#wtf #dafuq #idk"
-    }
+    "image_url": "https://media.giphy.com/media/11SIBu3s72Co8w/giphy-downsized.gif",
+    "alt_text": "HOW YOU DOIN?"
   },
   {
     "type": "actions",
@@ -52,28 +16,31 @@
         "type": "button",
         "text": {
           "type": "plain_text",
-          "text": "#awesome!!!!11",
+          "text": ":thumbsup: Gaat lekker",
           "emoji": true
         },
-        "value": "great"
+        "value": "great",
+        "action_id": "great"
       },
       {
         "type": "button",
         "text": {
           "type": "plain_text",
-          "text": "O-ki-do-ki",
+          "text": ":neutral_face: O-ki-do-ki",
           "emoji": true
         },
-        "value": "okay"
+        "value": "okay",
+        "action_id": "okay"
       },
       {
         "type": "button",
         "text": {
           "type": "plain_text",
-          "text": "#wtf #dafuq #idk",
+          "text": ":thumbsdown: Best wel kak",
           "emoji": true
         },
-        "value": "sad"
+        "value": "sad",
+        "action_id": "sad"
       }
     ]
   }
