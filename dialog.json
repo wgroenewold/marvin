@@ -3,11 +3,11 @@
     "type": "image",
     "title": {
       "type": "plain_text",
-      "text": "HOW YOU DOIN?",
+      "text": "Don't panic.",
       "emoji": true
     },
-    "image_url": "https://media.giphy.com/media/11SIBu3s72Co8w/giphy-downsized.gif",
-    "alt_text": "HOW YOU DOIN?"
+    "image_url": "https://media.giphy.com/media/9AeRnRRNQokeI/giphy-downsized.gif",
+    "alt_text": "Freeze? I'm a robot. I'm not a refrigerator."
   },
   {
     "type": "actions",

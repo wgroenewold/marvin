@@ -5,14 +5,17 @@
  */
 
 class marvin_db{
+    private $con;
+
+
     public function __construct(){
-        $database = new Medoo([
+        $this->con = new Medoo([
             // required
             'database_type' => 'mysql',
             'database_name' => 'marvin',
             'server' => 'localhost',
-            'username' => 'your_username',
-            'password' => 'your_password',
+            'username' => 'marvin',
+            'password' => 'QR1iUWA6XhLrb8_8b1Y0265IDOit',
 
             // [optional]
             'charset' => 'utf8mb4',
@@ -20,33 +23,33 @@ class marvin_db{
             'port' => 3306,
 
             // [optional] Table prefix
-            'prefix' => 'PREFIX_',
 
             // [optional] Enable logging (Logging is disabled by default for better performance)
             'logging' => true,
 
             // [optional] MySQL socket (shouldn't be used with server and port)
-            'socket' => '/tmp/mysql.sock',
+//            'socket' => '/tmp/mysql.sock',
 
             // [optional] driver_option for connection, read more from http://www.php.net/manual/en/pdo.setattribute.php
-            'option' => [
-                PDO::ATTR_CASE => PDO::CASE_NATURAL
-            ],
+//            'option' => [
+//                PDO::ATTR_CASE => PDO::CASE_NATURAL
+//            ],
 
             // [optional] Medoo will execute those commands after connected to the database for initialization
-            'command' => [
-                'SET SQL_MODE=ANSI_QUOTES'
-            ]
-        ]);
-
-        $database->insert("account", [
-            "user_name" => "foo",
-            "email" => "foo@bar.com"
+//            'command' => [
+//                'SET SQL_MODE=ANSI_QUOTES'
+//            ]
         ]);
     }
 
     public function create(){
+        $this->con->insert("results", [
+            "user_id" => "foo",
+            "score" => "10",
+            "created_at" => date("Y-m-d H:i:s"),
+        ]);
 
+        return $this->con->id();
     }
 
     public function read(){
