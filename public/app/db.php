@@ -1,5 +1,7 @@
 <?php
 
+use Medoo\Medoo;
+
 /**
  * Class db. For communication with DB.
  */

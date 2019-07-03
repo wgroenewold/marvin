@@ -1,5 +1,8 @@
 <?php
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\TransferException;
+
 /**
  * Class slack. For communication with Slack
  */

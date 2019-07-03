@@ -1,11 +1,6 @@
 <?php
 
 require '../vendor/autoload.php';
-
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\TransferException;
-use Medoo\Medoo;
-
 require_once('app/setup.php');
 require_once('app/slack.php');
 require_once('app/db.php');
