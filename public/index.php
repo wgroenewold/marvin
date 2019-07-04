@@ -3,6 +3,15 @@
 require_once('marvin.class.php');
 
 $instance = marvin::instance();
-$test = $instance->db->create();
 
-var_dump($test);
+
+
+
+
+
+
+//$test = $instance->db->create('results', array(
+//    'foo' => 'bar'
+//));
+//
+//var_dump($test);

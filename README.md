@@ -15,7 +15,8 @@ Todo:
 - ~~Send dialog.json to Slack.~~ 
 - ~~Use Guzzle to send POST request~~
 - ~~Catch callback from buttons - https://api.slack.com/messaging/interactivity~~
-- Use Medoo https://medoo.in/api/new to write catches to db (stamped!)
+- ~~Use Medoo https://medoo.in/api/new to write catches to db (stamped!)~~
+- Alles nog aan elkaar beunen en voorzien van wat leuke grapjes enzo.
 - Draw results on grafana dashboard 
 
 Wish: 

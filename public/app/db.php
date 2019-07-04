@@ -7,62 +7,61 @@ use Medoo\Medoo;
  */
 
 class marvin_db{
-    private $con;
+    private $connection;
+    private $db_type;
+    private $db_name;
+    private $db_server;
+    private $db_user;
+    private $db_pass;
+    private $db_charset;
+    private $db_collation;
+    private $db_port;
 
 
     public function __construct(){
-        $this->con = new Medoo([
+        $this->db_type = 'mysql';
+        $this->db_name = 'marvin';
+        $this->db_server = 'localhost';
+        $this->db_user = 'marvin';
+        $this->db_pass = 'QR1iUWA6XhLrb8_8b1Y0265IDOit';
+        $this->db_charset = 'utf8mb4';
+        $this->db_collation = 'utf8mb4_general_ci';
+        $this->db_port = 3306;
+
+        $this->connection = new Medoo([
             // required
-            'database_type' => 'mysql',
-            'database_name' => 'marvin',
-            'server' => 'localhost',
-            'username' => 'marvin',
-            'password' => 'QR1iUWA6XhLrb8_8b1Y0265IDOit',
-
-            // [optional]
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_general_ci',
-            'port' => 3306,
-
-            // [optional] Table prefix
-
-            // [optional] Enable logging (Logging is disabled by default for better performance)
+            'database_type' => $this->db_type,
+            'database_name' => $this->db_name,
+            'server' => $this->db_server,
+            'username' => $this->db_user,
+            'password' => $this->db_pass,
+            'charset' => $this->db_charset,
+            'collation' => $this->db_collation,
+            'port' => $this->db_port,
             'logging' => true,
-
-            // [optional] MySQL socket (shouldn't be used with server and port)
-//            'socket' => '/tmp/mysql.sock',
-
-            // [optional] driver_option for connection, read more from http://www.php.net/manual/en/pdo.setattribute.php
-//            'option' => [
-//                PDO::ATTR_CASE => PDO::CASE_NATURAL
-//            ],
-
-            // [optional] Medoo will execute those commands after connected to the database for initialization
-//            'command' => [
-//                'SET SQL_MODE=ANSI_QUOTES'
-//            ]
         ]);
     }
 
-    public function create(){
-        $this->con->insert("results", [
-            "user_id" => "foo",
-            "score" => "10",
-            "created_at" => date("Y-m-d H:i:s"),
-        ]);
+    /*
+     * Insert into DB. Data is assoc array with key as column.
+     */
 
-        return $this->con->id();
+    public function create($table, $data){
+        $this->connection->insert($table, $data);
+
+        return $this->connection->id();
     }
 
-    public function read(){
-
+    public function read($table, $columns, $where = null){
+        $data = $this->connection->select($table, $columns, $where);
+        return $data;
     }
 
-    public function update(){
-        //not needed yet
+    public function update($table, $data, $where = null){
+        $this->connection->update($table, $data, $where);
     }
 
-    public function delete(){
-        //not needed yet
+    public function delete($table, $where){
+        $this->connection->delete($table, $where);
     }
 }
