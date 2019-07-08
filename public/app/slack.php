@@ -70,6 +70,8 @@ class marvin_slack{
      * Receive POST request
      */
     public function receive(){
+        //@todo dit gaat nog niet goed als er geen input is
+
         $input = file_get_contents('php://input');
         $decode = json_decode($input, true);
 
@@ -87,7 +89,7 @@ class marvin_slack{
                 'created_at' => date('Y-m-d H:i:s'),
             );
 
-            $create = $db->create('results', $data);
+            $db->create('results', $data);
             return $decode;
         }else{
             return false;

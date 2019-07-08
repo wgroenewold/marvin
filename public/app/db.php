@@ -65,7 +65,7 @@ class marvin_db{
     }
 
     public function avg($table, $column, $where = null){
-        $data = $this->connection->avg($table, $column, $where = null);
+        $data = $this->connection->avg($table, $column, $where);
         return $data;
     }
 }
