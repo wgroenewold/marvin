@@ -5,6 +5,7 @@
     "catfan/medoo": "^1.6",
     "guzzlehttp/guzzle": "^6.3",
     "jclg/php-slack-bot": "^0.0.7",
-    "vlucas/phpdotenv": "^3.4"
+    "vlucas/phpdotenv": "^3.4",
+    "ext-json": "*"
   }
 }

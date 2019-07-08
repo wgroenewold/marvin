@@ -4,7 +4,6 @@ require_once('marvin.class.php');
 
 $instance = marvin::instance();
 
-//first
 $data = $instance->slack->receive();
 if($data && is_array($data)){
     $uri = $data['response_url'];

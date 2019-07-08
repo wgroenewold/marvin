@@ -2,22 +2,28 @@
 #### Slackbot to measure "werkgeluk".
 
  *"Here I am, brain the size of a planet, and they tell me to take you up to the bridge. Call that job satisfaction? 'Cos I don't."*
- 
-- Setup random trigger to index.php with cron https://github.com/taw00/howto/blob/master/howto-schedule-cron-jobs-to-run-at-random-intervals.md 
-- Create dialog with https://api.slack.com/tools/block-kit-builder
-- First Slack hoop jumping with challenge
-Eerst aanzetten:
-    https://api.slack.com/apps/AKRSMC3FY/event-subscriptions?
-Daarna moet je voldoen aan de challenge
-    https://api.slack.com/events/url_verification
 
-Todo:
+## Setup
+- Clone repo
+- ```composer install/update```
+- Create Slack App and get App ID 
+- Activate [incoming webhooks](https://api.slack.com/apps/YOURAPPID/incoming-webhooks)
+- Create dialog with [Block Kit Builder](https://api.slack.com/tools/block-kit-builder) and dump in ```dialog.json```
+- Setup [interactive components](https://api.slack.com/apps/YOURAPPID/interactive-messages)
+- Rename ```.env.example``` to ```.env``` and fill with your settings
+- Setup random trigger to ```cron.php``` with cron [Tutorial](https://github.com/taw00/howto/blob/master/howto-schedule-cron-jobs-to-run-at-random-intervals.md)
+
+## Todo:
 - ~~Send dialog.json to Slack.~~ 
 - ~~Use Guzzle to send POST request~~
 - ~~Catch callback from buttons - https://api.slack.com/messaging/interactivity~~
 - ~~Use Medoo https://medoo.in/api/new to write catches to db (stamped!)~~
-- Alles nog aan elkaar beunen en voorzien van wat leuke grapjes enzo.
-- Draw results on grafana dashboard 
+- ~~Alles nog aan elkaar beunen en~~ voorzien van wat leuke grapjes enzo.
+- Dotenv implementeren
+    - SLACK_EXPIREDTXT implementeren
+- Random trigger example       
+- Draw results on grafana dashboard.
+ 
 
-Wish: 
+Someday: 
 - Replace MySQL with InfluxDB for better performance/scalability. 
