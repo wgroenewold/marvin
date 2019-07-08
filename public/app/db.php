@@ -19,14 +19,14 @@ class marvin_db{
 
 
     public function __construct(){
-        $this->db_type = 'mysql';
-        $this->db_name = 'marvin';
-        $this->db_server = 'localhost';
-        $this->db_user = 'marvin';
-        $this->db_pass = 'QR1iUWA6XhLrb8_8b1Y0265IDOit';
-        $this->db_charset = 'utf8mb4';
-        $this->db_collation = 'utf8mb4_general_ci';
-        $this->db_port = 3306;
+        $this->db_type = getenv('DB_TYPE');
+        $this->db_name = getenv('DB_NAME');
+        $this->db_server = getenv('DB_SERVER');
+        $this->db_user = getenv('DB_USER');
+        $this->db_pass = getenv('DB_PASS');
+        $this->db_charset = getenv('DB_CHARSET');
+        $this->db_collation = getenv('DB_COLLATION');
+        $this->db_port = getenv('DB_PORT');
 
         $this->connection = new Medoo([
             // required

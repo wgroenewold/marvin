@@ -22,11 +22,11 @@
 - ~~Catch callback from buttons - https://api.slack.com/messaging/interactivity~~
 - ~~Use Medoo https://medoo.in/api/new to write catches to db (stamped!)~~
 - ~~Alles nog aan elkaar beunen en~~ voorzien van wat leuke grapjes enzo.
-- Dotenv implementeren
-    - SLACK_EXPIREDTXT implementeren
-- Random trigger example       
+- ~~Dotenv implementeren~~
+- SLACK_EXPIREDTXT implementeren
+- Add random trigger example       
 - Draw results on grafana dashboard.
  
 
-Someday: 
+## Someday: 
 - Replace MySQL with InfluxDB for better performance/scalability. 

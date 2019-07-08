@@ -12,8 +12,8 @@ class marvin_slack{
     private $channel_id;
 
     public function __construct(){
-        $this->token = 'xoxp-3352070206-3352070210-658386386467-17c46512694e2c67c9222b3fad5c20b0';
-        $this->channel_id = 'CKHCLEE01';
+        $this->token = getenv('SLACK_TOKEN');
+        $this->channel_id = getenv('SLACK_CHANNELID');
     }
 
     public function create_msg($balloon_txt, $blocks, $uri = false){
@@ -95,7 +95,7 @@ class marvin_slack{
     }
 
     public function log($e){
-        $file = 'log.txt';
+        $file = getenv('LOG_FILE');
         $current = file_get_contents($file);
         $current .= serialize($e) . "\n";
         file_put_contents($file, $current);

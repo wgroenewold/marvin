@@ -11,7 +11,7 @@ if($data && is_array($data)){
     $confirmation = array(
         'response_type' => 'ephemeral',
         'replace_original' => true,
-        'text' => 'Bedankt voor de bloemen, u hoort van ons!',
+        'text' => getenv('SLACK_CONFIRMATIONTXT'),
     );
 
     $confirmation = json_encode($confirmation, true);

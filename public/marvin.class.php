@@ -1,6 +1,8 @@
 <?php
 
 require '../vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::create('../');
+$dotenv->load();
 require_once('app/slack.php');
 require_once('app/db.php');
 
