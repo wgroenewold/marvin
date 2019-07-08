@@ -9,13 +9,41 @@ use GuzzleHttp\Exception\TransferException;
 
 class marvin_slack{
     private $token;
+    private $channel_id;
 
     public function __construct(){
         $this->token = 'xoxp-3352070206-3352070210-658386386467-17c46512694e2c67c9222b3fad5c20b0';
+        $this->channel_id = 'CKHCLEE01';
+    }
+
+    public function create_msg($balloon_txt, $blocks, $uri = false){
+        $blocks = json_decode($blocks, true);
+
+        $data = array(
+            'channel' => $this->channel_id,
+            'text' => $balloon_txt,
+            'blocks' => $blocks,
+        );
+
+        $data = json_encode($data, true);
+
+        if($uri){
+            if($data){
+                $msg = $this->send($uri, $data);
+                return $msg;
+            }else{
+                $this->log('Kon geen data maken, dus stuk.');
+            }
+        }else{
+            return $data;
+        }
+
+        return null;
     }
 
     public function send($uri, $data){
-        $instance = new GuzzleHttp\Client(['headers' => array(
+        //Add extra headers for Slack.
+        $instance = new Client(['headers' => array(
             'Content-type' => 'application/json; charset=utf-8',
             'Authorization' => 'Bearer ' . $this->token,
         )]);
@@ -32,10 +60,7 @@ class marvin_slack{
             }
         }
         catch(TransferException $e){
-            $file = 'log.txt';
-            $current = file_get_contents($file);
-            $current .= serialize($e) . "\n";
-            file_put_contents($file, $current);
+            $this->log($e);
         }
 
         return null;
@@ -45,15 +70,34 @@ class marvin_slack{
      * Receive POST request
      */
     public function receive(){
-        $postdata = file_get_contents('php://input');
-        $body = json_decode($body);
+        $input = file_get_contents('php://input');
+        $decode = json_decode($input, true);
 
-        if(!empty($body)){
-            return $body;
+        //Validator for Slack
+        if(isset($decode) && array_key_exists('challenge', $decode)) {
+            var_dump($input);
+        }
+
+        if(!empty($decode)){
+            $db = new marvin_db();
+
+            $data = array(
+                'user_id' => $decode['user']['id'],
+                'score' => $decode['actions'][0]['action_id'],
+                'created_at' => date('Y-m-d H:i:s'),
+            );
+
+            $create = $db->create('results', $data);
+            return $decode;
         }else{
             return false;
         }
     }
+
+    public function log($e){
+        $file = 'log.txt';
+        $current = file_get_contents($file);
+        $current .= serialize($e) . "\n";
+        file_put_contents($file, $current);
+    }
 }
-
-

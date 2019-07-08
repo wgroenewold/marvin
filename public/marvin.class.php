@@ -1,7 +1,6 @@
 <?php
 
 require '../vendor/autoload.php';
-require_once('app/setup.php');
 require_once('app/slack.php');
 require_once('app/db.php');
 
@@ -35,7 +34,6 @@ class marvin
      */
     private function __construct()
     {
-        $this->setup = new marvin_setup();
         $this->slack = new marvin_slack();
         $this->db = new marvin_db();
     }
