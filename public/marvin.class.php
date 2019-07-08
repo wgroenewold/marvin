@@ -5,6 +5,7 @@ $dotenv = Dotenv\Dotenv::create('../');
 $dotenv->load();
 require_once('app/slack.php');
 require_once('app/db.php');
+require_once('app/score.php');
 
 marvin::instance();
 /**
@@ -38,5 +39,6 @@ class marvin
     {
         $this->slack = new marvin_slack();
         $this->db = new marvin_db();
+        $this->score = new marvin_score();
     }
 }

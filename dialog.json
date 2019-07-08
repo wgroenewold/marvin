@@ -16,31 +16,111 @@
         "type": "button",
         "text": {
           "type": "plain_text",
-          "text": ":thumbsup: Gaat lekker",
+          "text": "1",
           "emoji": true
         },
-        "value": "great",
-        "action_id": "great"
+        "value": "1",
+        "action_id": "score_1"
       },
       {
         "type": "button",
         "text": {
           "type": "plain_text",
-          "text": ":neutral_face: O-ki-do-ki",
+          "text": "2",
           "emoji": true
         },
-        "value": "okay",
-        "action_id": "okay"
+        "value": "2",
+        "action_id": "score_2"
       },
       {
         "type": "button",
         "text": {
           "type": "plain_text",
-          "text": ":thumbsdown: Best wel kak",
+          "text": "3",
           "emoji": true
         },
-        "value": "sad",
-        "action_id": "sad"
+        "value": "3",
+        "action_id": "score_3"
+      },
+      {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "4",
+          "emoji": true
+        },
+        "value": "4",
+        "action_id": "score_4"
+      },
+      {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "5",
+          "emoji": true
+        },
+        "value": "5",
+        "action_id": "score_5"
+      },
+      {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "6",
+          "emoji": true
+        },
+        "value": "6",
+        "action_id": "score_6"
+      },
+      {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "7",
+          "emoji": true
+        },
+        "value": "7",
+        "action_id": "score_7"
+      },
+      {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "8",
+          "emoji": true
+        },
+        "value": "8",
+        "action_id": "score_8"
+      },
+      {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "9",
+          "emoji": true
+        },
+        "value": "9",
+        "action_id": "score_9"
+      },
+      {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "10",
+          "emoji": true
+        },
+        "value": "10",
+        "action_id": "score_10"
+      },
+      {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "11",
+          "emoji": true
+        },
+        "value": "11",
+        "action_id": "score_11"
       }
     ]
   }

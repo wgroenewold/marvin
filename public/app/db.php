@@ -29,7 +29,6 @@ class marvin_db{
         $this->db_port = getenv('DB_PORT');
 
         $this->connection = new Medoo([
-            // required
             'database_type' => $this->db_type,
             'database_name' => $this->db_name,
             'server' => $this->db_server,
@@ -63,5 +62,10 @@ class marvin_db{
 
     public function delete($table, $where){
         $this->connection->delete($table, $where);
+    }
+
+    public function avg($table, $column, $where = null){
+        $data = $this->connection->avg($table, $column, $where = null);
+        return $data;
     }
 }

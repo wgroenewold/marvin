@@ -23,8 +23,9 @@
 - ~~Use Medoo https://medoo.in/api/new to write catches to db (stamped!)~~
 - ~~Alles nog aan elkaar beunen en~~ voorzien van wat leuke grapjes enzo.
 - ~~Dotenv implementeren~~
-- SLACK_EXPIREDTXT implementeren
-- Add random trigger example       
+- Add results to hook
+- Add random trigger example
+- SLACK_EXPIREDTXT implementeren       
 - Draw results on grafana dashboard.
  
 

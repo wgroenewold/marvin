@@ -83,7 +83,7 @@ class marvin_slack{
 
             $data = array(
                 'user_id' => $decode['user']['id'],
-                'score' => $decode['actions'][0]['action_id'],
+                'score' => intval($decode['actions'][0]['value']),
                 'created_at' => date('Y-m-d H:i:s'),
             );
 
