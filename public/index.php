@@ -17,3 +17,4 @@ if($data && is_array($data)){
     $confirmation = json_encode($confirmation, true);
     $instance->slack->send($uri, $confirmation);
 }
+

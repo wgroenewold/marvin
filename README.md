@@ -25,7 +25,10 @@
 - ~~Dotenv implementeren~~
 - Add results to hook
 - Add random trigger example
-- SLACK_EXPIREDTXT implementeren       
+- SLACK_EXPIREDTXT implementeren
+- Release 1.0
+- Add option for tags
+- Add extra table with userid meta       
 - Draw results on grafana dashboard.
  
 
