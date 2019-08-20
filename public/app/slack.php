@@ -73,7 +73,9 @@ class marvin_slack{
         //@todo dit gaat nog niet goed als er geen input is
 
         $input = file_get_contents('php://input');
-        $decode = json_decode($input, true);
+        if($input){
+            $decode = json_decode($input, true);
+        }
 
         //Validator for Slack
         if(isset($decode) && array_key_exists('challenge', $decode)) {
@@ -81,7 +83,9 @@ class marvin_slack{
         }
 
         if(!empty($decode)){
-            $db = new marvin_db();
+            $db = marvin::instance()->db;
+
+//            $db = new marvin_db();
 
             $data = array(
                 'user_id' => $decode['user']['id'],

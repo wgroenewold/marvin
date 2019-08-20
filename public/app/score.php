@@ -8,7 +8,9 @@ class marvin_score{
     private $db;
 
     public function __construct(){
-        $this->db = new marvin_db();
+        //$this->db = new marvin_db();
+
+        $this->db = marvin::instance()->db; //@todo volgens mij moet het zoiets worden
     }
 
     public function get_user_avg($user_id){

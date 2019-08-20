@@ -32,9 +32,6 @@ class marvin
         return self::$instance;
     }
 
-    /**
-     * Initialize hooks and filters
-     */
     private function __construct()
     {
         $this->slack = new marvin_slack();
