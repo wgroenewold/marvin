@@ -70,8 +70,6 @@ class marvin_slack{
      * Receive POST request
      */
     public function receive(){
-        //@todo dit gaat nog niet goed als er geen input is
-
         $input = file_get_contents('php://input');
         if($input){
             $decode = json_decode($input, true);
