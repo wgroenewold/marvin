@@ -21,16 +21,17 @@
 - ~~Use Guzzle to send POST request~~
 - ~~Catch callback from buttons - https://api.slack.com/messaging/interactivity~~
 - ~~Use Medoo https://medoo.in/api/new to write catches to db (stamped!)~~
-- ~~Alles nog aan elkaar beunen en~~ voorzien van wat leuke grapjes enzo.
+- ~~Alles nog aan elkaar beunen en voorzien van wat leuke grapjes enzo.~~
 - ~~Dotenv implementeren~~
 - Add results to hook
+- Release 0.1
 - Add random trigger example
 - SLACK_EXPIREDTXT implementeren
-- Release 1.0
 - Add option for tags
 - Add extra table with userid meta       
 - Draw results on grafana dashboard.
  
 
-## Someday: 
+## Someday:
+- Document .env template vars  
 - Replace MySQL with InfluxDB for better performance/scalability. 
