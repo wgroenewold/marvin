@@ -10,8 +10,10 @@ use GuzzleHttp\Exception\TransferException;
 class marvin_slack{
     private $token;
     private $channel_id;
+    private $db;
 
     public function __construct(){
+        $this->db = new marvin_db();
         $this->token = getenv('SLACK_TOKEN');
         $this->channel_id = getenv('SLACK_CHANNELID');
     }
@@ -24,8 +26,6 @@ class marvin_slack{
             'text' => $balloon_txt,
             'blocks' => $blocks,
         );
-
-        $data = json_encode($data, true);
 
         if($uri){
             if($data){
@@ -75,23 +75,19 @@ class marvin_slack{
             $decode = json_decode($input, true);
         }
 
-        //Validator for Slack
+        //"Validator" for Slack
         if(isset($decode) && array_key_exists('challenge', $decode)) {
             var_dump($input);
         }
 
         if(!empty($decode)){
-            $db = marvin::instance()->db;
-
-//            $db = new marvin_db();
-
             $data = array(
                 'user_id' => $decode['user']['id'],
                 'score' => intval($decode['actions'][0]['value']),
                 'created_at' => date('Y-m-d H:i:s'),
             );
 
-            $db->create('results', $data);
+            $this->db->create('results', $data);
             return $decode;
         }else{
             return false;

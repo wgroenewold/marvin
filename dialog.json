@@ -1,126 +1,131 @@
 [
   {
-    "type": "image",
-    "title": {
-      "type": "plain_text",
-      "text": "Don't panic.",
-      "emoji": true
+    "type":"image",
+    "title":{
+      "type":"plain_text",
+      "text":"Don't panic.",
+      "emoji":true
     },
-    "image_url": "https://media.giphy.com/media/9AeRnRRNQokeI/giphy-downsized.gif",
-    "alt_text": "Freeze? I'm a robot. I'm not a refrigerator."
+    "image_url":"https://media.giphy.com/media/9AeRnRRNQokeI/giphy-downsized.gif",
+    "alt_text":"Freeze? I'm a robot. I'm not a refrigerator."
   },
   {
-    "type": "actions",
-    "elements": [
+    "type":"actions",
+    "elements":[
       {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "1",
-          "emoji": true
+        "type":"button",
+        "text":{
+          "type":"plain_text",
+          "text":"1",
+          "emoji":true
         },
-        "value": "1",
-        "action_id": "score_1"
+        "value":"1",
+        "action_id":"score_1"
       },
       {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "2",
-          "emoji": true
+        "type":"button",
+        "text":{
+          "type":"plain_text",
+          "text":"2",
+          "emoji":true
         },
-        "value": "2",
-        "action_id": "score_2"
+        "value":"2",
+        "action_id":"score_2"
       },
       {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "3",
-          "emoji": true
+        "type":"button",
+        "text":{
+          "type":"plain_text",
+          "text":"3",
+          "emoji":true
         },
-        "value": "3",
-        "action_id": "score_3"
+        "value":"3",
+        "action_id":"score_3"
       },
       {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "4",
-          "emoji": true
+        "type":"button",
+        "text":{
+          "type":"plain_text",
+          "text":"4",
+          "emoji":true
         },
-        "value": "4",
-        "action_id": "score_4"
+        "value":"4",
+        "action_id":"score_4"
       },
       {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "5",
-          "emoji": true
+        "type":"button",
+        "text":{
+          "type":"plain_text",
+          "text":"5",
+          "emoji":true
         },
-        "value": "5",
-        "action_id": "score_5"
+        "value":"5",
+        "action_id":"score_5"
+      }
+    ]
+  },
+  {
+    "type":"actions",
+    "elements":[
+      {
+        "type":"button",
+        "text":{
+          "type":"plain_text",
+          "text":"6",
+          "emoji":true
+        },
+        "value":"6",
+        "action_id":"score_6"
       },
       {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "6",
-          "emoji": true
+        "type":"button",
+        "text":{
+          "type":"plain_text",
+          "text":"7",
+          "emoji":true
         },
-        "value": "6",
-        "action_id": "score_6"
+        "value":"7",
+        "action_id":"score_7"
       },
       {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "7",
-          "emoji": true
+        "type":"button",
+        "text":{
+          "type":"plain_text",
+          "text":"8",
+          "emoji":true
         },
-        "value": "7",
-        "action_id": "score_7"
+        "value":"8",
+        "action_id":"score_8"
       },
       {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "8",
-          "emoji": true
+        "type":"button",
+        "text":{
+          "type":"plain_text",
+          "text":"9",
+          "emoji":true
         },
-        "value": "8",
-        "action_id": "score_8"
+        "value":"9",
+        "action_id":"score_9"
       },
       {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "9",
-          "emoji": true
+        "type":"button",
+        "text":{
+          "type":"plain_text",
+          "text":"10",
+          "emoji":true
         },
-        "value": "9",
-        "action_id": "score_9"
+        "value":"10",
+        "action_id":"score_10"
       },
       {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "10",
-          "emoji": true
+        "type":"button",
+        "text":{
+          "type":"plain_text",
+          "text":"11",
+          "emoji":true
         },
-        "value": "10",
-        "action_id": "score_10"
-      },
-      {
-        "type": "button",
-        "text": {
-          "type": "plain_text",
-          "text": "11",
-          "emoji": true
-        },
-        "value": "11",
-        "action_id": "score_11"
+        "value":"11",
+        "action_id":"score_11"
       }
     ]
   }
