@@ -6,8 +6,6 @@ $instance = marvin::instance();
 
 $data = $instance->slack->receive();
 
-//var_dump(getenv('SLACK_CONFIRMATIONTXT'));
-
 if($data && is_array($data)){
     $uri = $data['response_url'];
 

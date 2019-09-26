@@ -72,25 +72,31 @@ class marvin_slack{
     public function receive(){
         $input = file_get_contents('php://input');
         if($input){
-            $decode = json_decode($input, true);
-        }
+            if(strpos($input, 'payload') !== false){
+                $input = urldecode($input);
+                $input = explode('=', $input);
+                $input = $input[1];
+                $decode = json_decode($input, true);
 
-        //"Validator" for Slack
-        if(isset($decode) && array_key_exists('challenge', $decode)) {
-            var_dump($input);
-        }
+                if(!empty($decode)){
+                    $data = array(
+                        'user_id' => $decode['user']['id'],
+                        'score' => intval($decode['actions'][0]['value']),
+                        'created_at' => date('Y-m-d H:i:s'),
+                    );
 
-        if(!empty($decode)){
-            $data = array(
-                'user_id' => $decode['user']['id'],
-                'score' => intval($decode['actions'][0]['value']),
-                'created_at' => date('Y-m-d H:i:s'),
-            );
-
-            $this->db->create('results', $data);
-            return $decode;
-        }else{
-            return false;
+                    $this->db->create('results', $data);
+                    return $decode;
+                }else{
+                    return false;
+                }
+            }else{
+                //"Validator" for Slack
+                $decode = json_decode($input, true);
+                if(isset($decode) && array_key_exists('challenge', $decode)) {
+                    var_dump($input);
+                }
+            }
         }
     }
 

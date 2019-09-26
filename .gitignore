@@ -2,3 +2,5 @@
 /.idea
 .env
 nginx.conf
+log.txt
+public/log.txt
