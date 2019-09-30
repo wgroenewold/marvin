@@ -23,8 +23,8 @@
 - ~~Use Medoo https://medoo.in/api/new to write catches to db (stamped!)~~
 - ~~Alles nog aan elkaar beunen en voorzien van wat leuke grapjes enzo.~~
 - ~~Dotenv implementeren~~
-- Add results to hook
-- Release 0.1
+- ~~Add results to hook~~
+- ~~Stage 0.1~~
 - Add random trigger example
 - SLACK_EXPIREDTXT implementeren
 - Add option for tags
@@ -33,5 +33,7 @@
  
 
 ## Someday:
-- Document .env template vars  
+- Document .env template vars
+- Say something about scope  
 - Replace MySQL with InfluxDB for better performance/scalability. 
+- Remove stuff about channels

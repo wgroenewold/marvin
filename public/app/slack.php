@@ -9,20 +9,58 @@ use GuzzleHttp\Exception\TransferException;
 
 class marvin_slack{
     private $token;
-    private $channel_id;
     private $db;
 
     public function __construct(){
         $this->db = new marvin_db();
         $this->token = getenv('SLACK_TOKEN');
-        $this->channel_id = getenv('SLACK_CHANNELID');
     }
 
-    public function create_msg($balloon_txt, $blocks, $uri = false){
+    public function list_channels(){
+        $data = array();
+
+        $args = array(
+            'token' => $this->token,
+            'exclude_archived' => true,
+            'limit' => 1000,
+            'types' => 'im',
+            'cursor' => '',
+        );
+
+        $response = $this->get('https://slack.com/api/conversations.list', $args);
+
+        if($response && $response['ok'] == true){
+            foreach($response['channels'] as $value){
+                $data[] = $value['id'];
+            }
+
+            unset($value);
+
+            while(array_key_exists('response_metadata', $response) && $response['response_metadata']['next_cursor'] != false){
+                $args['cursor'] = $response['response_metadata']['next_cursor'];
+
+                $response = $this->get('https://slack.com/api/conversations.list', $args);
+
+                if($response && $response['ok'] == true){
+                    foreach($response['channels'] as $value){
+                        $data[] = $value['id'];
+                    }
+
+                    unset($value);
+
+                    $args['cursor'] = $response['response_metadata']['next_cursor'];
+                }
+            }
+        }
+
+        return $data;
+    }
+
+    public function create_msg($balloon_txt, $blocks, $channel, $uri = false){
         $blocks = json_decode($blocks, true);
 
         $data = array(
-            'channel' => $this->channel_id,
+            'channel' => $channel,
             'text' => $balloon_txt,
             'blocks' => $blocks,
         );
@@ -36,6 +74,27 @@ class marvin_slack{
             }
         }else{
             return $data;
+        }
+
+        return null;
+    }
+
+    public function get($uri, $data){
+        $instance = new Client();
+
+        try{
+            $result = $instance->get($uri, ['query' => $data]);
+            $body = (string) $result->getBody();
+            $body = json_decode($body, true);
+
+            if(!empty($body)){
+                return $body;
+            }else{
+                return false;
+            }
+        }
+        catch(TransferException $e){
+            $this->log($e);
         }
 
         return null;
