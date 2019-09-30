@@ -16,6 +16,21 @@ class marvin_slack{
         $this->token = getenv('SLACK_TOKEN');
     }
 
+    public function template($data){
+        $input = array(
+            "{TODAY}",
+        );
+
+        $output = array(
+            strftime("%A %e %B %Y", time()),
+        );
+
+        $data = str_replace($input, $output, $data);
+
+        return $data;
+    }
+
+
     public function list_channels(){
         $data = array();
 

@@ -1,5 +1,12 @@
 [
   {
+    "type": "section",
+    "text": {
+      "type": "mrkdwn",
+      "text": "*Het is vandaag {TODAY}. Hoe is jouw werkgeluk op dit moment?*"
+    }
+  },
+  {
     "type":"image",
     "title":{
       "type":"plain_text",

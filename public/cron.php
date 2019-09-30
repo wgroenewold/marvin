@@ -6,6 +6,7 @@ $instance = marvin::instance();
 
 $balloon_txt = getenv('SLACK_BALLOONTXT');
 $blocks = file_get_contents('../dialog.json');
+$blocks = $instance->slack->template($blocks);
 
 $channels = $instance->slack->list_channels();
 

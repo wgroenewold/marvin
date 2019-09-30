@@ -7,6 +7,8 @@ require_once('app/slack.php');
 require_once('app/db.php');
 require_once('app/score.php');
 
+setlocale(LC_ALL, 'nl_NL');
+
 marvin::instance();
 /**
  * Class marvin

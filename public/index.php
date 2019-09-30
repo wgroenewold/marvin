@@ -22,7 +22,8 @@ if($data && is_array($data)){
         "{DAILY_AVG}",
         "{DAILY_COUNT}",
         "{TOTAL_AVG}",
-        "{TOTAL_COUNT}"
+        "{TOTAL_COUNT}",
+        ". ",
     );
     $output = array(
         $data['actions'][0]['value'],
@@ -32,6 +33,7 @@ if($data && is_array($data)){
         $daily_avg['count'],
         $total_avg['avg'],
         $total_avg['count'],
+        ". \n",
     );
 
     $text = str_replace($input, $output, $text);
