@@ -6,6 +6,7 @@ $dotenv->load();
 require_once('app/slack.php');
 require_once('app/db.php');
 require_once('app/score.php');
+require_once('app/tags.php');
 
 setlocale(LC_ALL, 'nl_NL');
 
@@ -39,5 +40,6 @@ class marvin
         $this->slack = new marvin_slack();
         $this->db = new marvin_db();
         $this->score = new marvin_score();
+        $this->tags = new marvin_tags();
     }
 }

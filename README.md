@@ -49,8 +49,16 @@
 - ~~Scriptje maken om die db structuur klaar te rossen voor launch~~
 - ~~Remove stuff about channels from README.md~~
 - ~~Say something about scope in Slack~~
-- Release v0.2
+- ~~Release v0.2~~
 - Add option for tags
+    - ~~Load tags.json~~
+    - ~~die dialog.json maken met de db, dan kan je dat leidend houden~~
+    - Make trigger connected to prev results
+    - index.php verder splitten zodat emotions en decline eigen states hebben
+    - Meta table maken voor users
+    - ~~Meta table maken voor tags~~
+    - Tags opslaan? Hoe dan, met heel veel records wss.. 
+    
 - Add extra table with userid meta       
 - Draw results on grafana dashboard.
 
@@ -58,7 +66,7 @@
 Because [HHGTTG](https://en.wikipedia.org/wiki/Marvin_the_Paranoid_Android)
 
 #### Why is the scale 1-11?
-Because [Spinal Tap](https://www.youtube.com/watch?v=KOO5S4vxi0o) 
+Because [This is Spinal Tap](https://www.youtube.com/watch?v=KOO5S4vxi0o) 
  
 ## Someday: 
 - Replace MySQL with InfluxDB for better performance/scalability. 

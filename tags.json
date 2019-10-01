@@ -1,0 +1,45 @@
+[
+    {
+      "type": "section",
+      "text": {
+        "type": "plain_text",
+        "text": "{RESULTS}",
+        "emoji": true
+      }
+    },
+    {
+      "type": "divider"
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Welke werkemoties ervaar je op dit moment?"
+      },
+      "accessory": {
+        "type": "multi_static_select",
+        "placeholder": {
+          "type": "plain_text",
+          "text": "Kies hier je emoties",
+          "emoji": true
+        },
+        "options": []
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "plain_text",
+        "text": "   "
+      },
+      "accessory": {
+        "type": "button",
+        "text": {
+          "type": "plain_text",
+          "text": "Ik wil mijn emoties niet delen",
+          "emoji": true
+        },
+        "value": "tags_decline"
+      }
+    }
+  ]

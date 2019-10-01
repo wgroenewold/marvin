@@ -43,7 +43,7 @@ if($data && is_array($data)){
         'channel' => $data['container']['channel_id'],
         'text' => getenv('SLACK_CONFIRMATIONTXT'),
         'ts' => $data['container']['message_ts'],
-        'blocks' => [],
+        'blocks' => file_get_contents('../tags.json'),
     );
 
     $instance->slack->send('https://slack.com/api/chat.update', $args);
