@@ -9,13 +9,29 @@
 ## Setup
 - Clone repo
 - ```composer install/update```
-- Setup DB
+- Setup DB (you could use ```db_structure.sql``` to simplify this for yourself)
 - Create Slack App and get App ID 
 - Activate [incoming webhooks](https://api.slack.com/apps/YOURAPPID/incoming-webhooks)
 - Create dialog with [Block Kit Builder](https://api.slack.com/tools/block-kit-builder) and dump in ```dialog.json```
-- Setup [interactive components](https://api.slack.com/apps/YOURAPPID/interactive-messages)
-- Rename ```.env.example``` to ```.env``` and fill with your settings
-- Setup random trigger to ```cron.php``` with cron [Tutorial](https://github.com/taw00/howto/blob/master/howto-schedule-cron-jobs-to-run-at-random-intervals.md)
+- Set scope with [OAuth & Permissions](https://api.slack.com/apps/AKRSMC3FY/oauth)
+    - chat:write:bot
+    - im:write
+    - incoming-webhook
+    - bot
+    - users:read
+
+- Setup [interactive components](https://api.slack.com/apps/YOURAPPID/interactive-messages)       
+- Rename ```.env.example``` to ```.env``` and fill with your settings. You can use several template-vars to make responses pretty:
+    - ```{TODAY}``` - Dinsdag 1 oktober 2019 - (date)
+    - ```{NOW}``` - 3 (personal score today)
+    - ```{USER_AVG}``` - 3.2 (personal average score)
+    - ```{USER_COUNT}``` - 12 (count of personal scores)
+    - ```{DAILY_AVG}``` - 3 (score average today of organisation)
+    - ```{DAILY_COUNT}``` - 12 (count of organisation scores today)
+    - ```{TOTAL_AVG}``` - 3 (score average total of organisation)
+    - ```{TOTAL_COUNT}``` - 12 (count of organisation scores total)
+
+- Setup random trigger to ```cron.php``` with cron (you could use ```crontab.sh``` to simplify this for yourself)
 
 ## Todo:
 - ~~Send dialog.json to Slack.~~ 
@@ -30,17 +46,19 @@
 - ~~chat.update ipv ephemeral doen~~
 - ~~Hook nog weer aanpassen~~
 - ~~Add random trigger example~~
-- v0.2
+- ~~Scriptje maken om die db structuur klaar te rossen voor launch~~
+- ~~Remove stuff about channels from README.md~~
+- ~~Say something about scope in Slack~~
+- Release v0.2
 - Add option for tags
 - Add extra table with userid meta       
 - Draw results on grafana dashboard.
 
+#### Why is it called Marvin?
+Because [HHGTTG](https://en.wikipedia.org/wiki/Marvin_the_Paranoid_Android)
+
 #### Why is the scale 1-11?
 Because [Spinal Tap](https://www.youtube.com/watch?v=KOO5S4vxi0o) 
  
-## Someday:
-- Document .env template vars
-- Say something about scope  
+## Someday: 
 - Replace MySQL with InfluxDB for better performance/scalability. 
-- Remove stuff about channels
-- Scriptje maken om die db structuur klaar te rossen voor launch

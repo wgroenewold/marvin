@@ -22,6 +22,7 @@ if($data && is_array($data)){
         "{TOTAL_AVG}",
         "{TOTAL_COUNT}",
         ". ",
+        "{TODAY}",
     );
     $output = array(
         $data['actions'][0]['value'],
@@ -32,6 +33,7 @@ if($data && is_array($data)){
         $total_avg['avg'],
         $total_avg['count'],
         ". \n",
+        strftime("%A %e %B %Y", time()),
     );
 
     $text = str_replace($input, $output, $text);

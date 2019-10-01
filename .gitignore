@@ -4,3 +4,4 @@
 nginx.conf
 log.txt
 public/log.txt
+public/test.php
