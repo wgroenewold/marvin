@@ -7,9 +7,7 @@ $instance = marvin::instance();
 $data = $instance->slack->receive();
 
 if($data && is_array($data)){
-    $uri = $data['response_url'];
-    $user_id = $data['user']['id'];
-    $user_avg = $instance->score->get_user_avg($user_id);
+    $user_avg = $instance->score->get_user_avg($data['user']['id']);
     $daily_avg = $instance->score->get_daily_avg();
     $total_avg = $instance->score->get_total_avg();
 
@@ -38,12 +36,16 @@ if($data && is_array($data)){
 
     $text = str_replace($input, $output, $text);
 
-    $confirmation = array(
-        'response_type' => 'ephemeral',
-        'replace_original' => true,
-        'text' => $text,
+    //chat.update
+    $args = array(
+        'channel' => $data['container']['channel_id'],
+        'text' => getenv('SLACK_CONFIRMATIONTXT'),
+        'ts' => $data['container']['message_ts'],
+        'blocks' => [],
     );
 
-    $instance->slack->send($uri, $confirmation);
-}
+    $instance->slack->send('https://slack.com/api/chat.update', $args);
 
+    //remove expiration from db
+    $instance->db->delete("expiration", ["ts" => $data['container']['message_ts']]);
+}

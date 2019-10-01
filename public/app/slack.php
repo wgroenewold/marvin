@@ -125,7 +125,7 @@ class marvin_slack{
         try{
             $result = $instance->post($uri, ['json' => $data]);
             $body = (string) $result->getBody();
-            $body = json_decode($body);
+            $body = json_decode($body, true);
 
             if(!empty($body)){
                 return $body;

@@ -9,6 +9,7 @@
 ## Setup
 - Clone repo
 - ```composer install/update```
+- Setup DB
 - Create Slack App and get App ID 
 - Activate [incoming webhooks](https://api.slack.com/apps/YOURAPPID/incoming-webhooks)
 - Create dialog with [Block Kit Builder](https://api.slack.com/tools/block-kit-builder) and dump in ```dialog.json```
@@ -25,15 +26,21 @@
 - ~~Dotenv implementeren~~
 - ~~Add results to hook~~
 - ~~Stage 0.1~~
-- Add random trigger example
-- SLACK_EXPIREDTXT implementeren
+- ~~SLACK_EXPIREDTXT implementeren~~
+- ~~chat.update ipv ephemeral doen~~
+- ~~Hook nog weer aanpassen~~
+- ~~Add random trigger example~~
+- v0.2
 - Add option for tags
 - Add extra table with userid meta       
 - Draw results on grafana dashboard.
- 
 
+#### Why is the scale 1-11?
+Because [Spinal Tap](https://www.youtube.com/watch?v=KOO5S4vxi0o) 
+ 
 ## Someday:
 - Document .env template vars
 - Say something about scope  
 - Replace MySQL with InfluxDB for better performance/scalability. 
 - Remove stuff about channels
+- Scriptje maken om die db structuur klaar te rossen voor launch
