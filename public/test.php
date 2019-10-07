@@ -15,7 +15,7 @@ $blocks = $instance->slack->template($blocks);
 //send initial message (1-11)
 //foreach($channels as $channel){
     $channel = 'DKPEU8UCU';
-    $instance->slack->create_msg($balloon_txt, $blocks, $channel, 'https://slack.com/api/chat.postMessage');
+    $response = $instance->slack->create_msg($balloon_txt, $blocks, $channel, 'https://slack.com/api/chat.postMessage');
 //}
 
 //chat.update all old ones as expired
