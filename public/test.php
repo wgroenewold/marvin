@@ -77,7 +77,7 @@ $instance->db->create('expiration', array(
 //
 //$instance->slack->send('https://slack.com/api/chat.update', $args);
 
-$temp = $instance->tags->create_dialog(file_get_contents('../tags.json'));
+//$temp = $instance->tags->create_dialog(file_get_contents('../tags.json'));
 
 //read db, make array ready for insert
 //
