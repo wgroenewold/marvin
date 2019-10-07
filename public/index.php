@@ -7,8 +7,9 @@ $instance = marvin::instance();
 $data = $instance->slack->receive();
 
 if($data && is_array($data)){
-    switch($data['message']['text']) {
-        case getenv('SLACK_BALLOONTXT'):
+    switch($data['actions'][0]['block_id']) {
+        case 'score_1':
+        case 'score_2':
             $user_avg = $instance->score->get_user_avg($data['user']['id']);
             $daily_avg = $instance->score->get_daily_avg();
             $total_avg = $instance->score->get_total_avg();
@@ -51,7 +52,8 @@ if($data && is_array($data)){
             );
 
             break;
-        case getenv('TAGS_BALLOONTXT'):
+        case 'tags_1':
+        case 'tags_2':
             $args = array(
                 'channel' => $data['container']['channel_id'],
                 'text' => getenv('TAGS_CONFIRMATIONTXT'),
