@@ -18,6 +18,7 @@
   },
   {
     "type":"actions",
+    "block_id": "score_1",
     "elements":[
       {
         "type":"button",
@@ -73,6 +74,7 @@
   },
   {
     "type":"actions",
+    "block_id": "score_2",
     "elements":[
       {
         "type":"button",

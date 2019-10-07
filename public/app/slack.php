@@ -155,8 +155,10 @@ class marvin_slack{
                 if(!empty($decode)){
                     //hier splitsen
 
-                    switch($decode['message']['text']){
-                        case getenv('SLACK_BALLOONTXT'):
+                    switch($decode['actions']['action_id']){
+                        case 'score_1':
+                        case 'score_2':
+                            $table = 'results';
                             $data = array(
                                         array(
                                             'user_id' => $decode['user']['id'],
@@ -165,7 +167,9 @@ class marvin_slack{
                                         )
                                     );
                             break;
-                        case getenv('TAGS_BALLOONTXT'):
+                        case 'tags_1':
+                        case 'tags_2':
+                            $table = 'emotions';
                             if(isset($decode['actions']['value']) && $decode['actions']['value'] == 'tags_decline'){
                                 $data = array(array(
                                     'user_id' => $decode['user']['id'],
@@ -191,7 +195,7 @@ class marvin_slack{
                     }
 
                     foreach($data as $item){
-                        $this->db->create('results', $item);
+                        $this->db->create($table, $item);
                     }
 
                     return $decode;

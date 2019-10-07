@@ -16,6 +16,7 @@
         "type": "mrkdwn",
         "text": "Welke werkemoties ervaar je op dit moment?"
       },
+      "block_id": "tags_1",
       "accessory": {
         "type": "multi_static_select",
         "placeholder": {
@@ -32,6 +33,7 @@
         "type": "plain_text",
         "text": "   "
       },
+      "block_id": "tags_2",
       "accessory": {
         "type": "button",
         "text": {
