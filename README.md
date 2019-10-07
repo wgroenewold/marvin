@@ -53,13 +53,13 @@
 - Add option for tags
     - ~~Load tags.json~~
     - ~~die tags.json maken met de db, dan kan je dat leidend houden~~
-    ! Make trigger connected to prev results
-    ! index.php verder splitten zodat emotions en decline eigen states hebben voor afvangen       
+    - ~~Make trigger connected to prev results~~
+    - ~~index.php verder splitten zodat emotions en decline eigen states hebben voor afvangen~~       
     - ~~Meta table maken voor tags~~
-    ! Emotions opslaan
-    ! db_structure.sql aanpassen
-    - .env.example aanpassen    
-- Release v0.3
+    - ~~Emotions opslaan~~
+    - ~~db_structure.sql aanpassen~~
+    - ~~.env.example aanpassen~~    
+- ~~Release v0.3~~
 - Meta table maken voor users          
 - Draw results on grafana dashboard.
 
