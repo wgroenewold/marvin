@@ -39,7 +39,8 @@ if($data && is_array($data)){
             );
 
             $text = str_replace($input, $output, $text);
-            $blocks = file_get_contents('../tags.json');
+
+            $blocks = $instance->tags->create_dialog(file_get_contents('../tags.json'));
             $results = str_replace('{RESULTS}', $text, $blocks);
 
             $args = array(
