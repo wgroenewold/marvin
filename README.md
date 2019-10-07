@@ -52,14 +52,14 @@
 - ~~Release v0.2~~
 - Add option for tags
     - ~~Load tags.json~~
-    - ~~die dialog.json maken met de db, dan kan je dat leidend houden~~
-    - Make trigger connected to prev results
-    - index.php verder splitten zodat emotions en decline eigen states hebben
-    - Meta table maken voor users
+    - ~~die tags.json maken met de db, dan kan je dat leidend houden~~
+    ! Make trigger connected to prev results
+    ! index.php verder splitten zodat emotions en decline eigen states hebben voor afvangen       
     - ~~Meta table maken voor tags~~
-    - Tags opslaan? Hoe dan, met heel veel records wss.. 
-    
-- Add extra table with userid meta       
+    ! Emotions opslaan
+    ! db_structure.sql aanpassen    
+- Release v0.3
+- Meta table maken voor users          
 - Draw results on grafana dashboard.
 
 #### Why is it called Marvin?

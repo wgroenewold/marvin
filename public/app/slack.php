@@ -153,13 +153,47 @@ class marvin_slack{
                 $decode = json_decode($input, true);
 
                 if(!empty($decode)){
-                    $data = array(
-                        'user_id' => $decode['user']['id'],
-                        'score' => intval($decode['actions'][0]['value']),
-                        'created_at' => date('Y-m-d H:i:s'),
-                    );
+                    //hier splitsen
 
-                    $this->db->create('results', $data);
+                    switch($decode['message']['text']){
+                        case getenv('SLACK_BALLOONTXT'):
+                            $data = array(
+                                        array(
+                                            'user_id' => $decode['user']['id'],
+                                            'score' => intval($decode['actions'][0]['value']),
+                                            'created_at' => date('Y-m-d H:i:s'),
+                                        )
+                                    );
+                            break;
+                        case getenv('TAGS_BALLOONTXT'):
+                            if(isset($decode['actions']['value']) && $decode['actions']['value'] == 'tags_decline'){
+                                $data = array(array(
+                                    'user_id' => $decode['user']['id'],
+                                    'tag_id' => 0,
+                                    'created_at' => date('Y-m-d H:i:s'),
+                                ));
+                            }else{
+                                $data = array();
+                                foreach($decode['actions']['selected_options'] as $tag){
+                                    $id = explode('_', $tag['value']);
+                                    $id = $id[1];
+                                    $data[] = array(
+                                        'user_id' => $decode['user']['id'],
+                                        'tag_id' => $id,
+                                        'created_at' => date('Y-m-d H:i:s'),
+                                    );
+                                }
+                            }
+
+                            break;
+                        default:
+                            return false;
+                    }
+
+                    foreach($data as $item){
+                        $this->db->create('results', $item);
+                    }
+
                     return $decode;
                 }else{
                     return false;
