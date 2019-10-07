@@ -155,9 +155,8 @@ class marvin_slack{
                 if(!empty($decode)){
                     //hier splitsen
 
-                    switch($decode['actions']['action_id']){
-                        case 'score_1':
-                        case 'score_2':
+                    switch($decode['message']['text']){
+                        case getenv('SLACK_BALLOONTXT'):
                             $table = 'results';
                             $data = array(
                                         array(
@@ -167,8 +166,7 @@ class marvin_slack{
                                         )
                                     );
                             break;
-                        case 'tags_1':
-                        case 'tags_2':
+                        case getenv('TAGS_BALLOONTXT'):
                             $table = 'emotions';
                             if(isset($decode['actions']['value']) && $decode['actions']['value'] == 'tags_decline'){
                                 $data = array(array(
@@ -210,6 +208,7 @@ class marvin_slack{
                 }
             }
         }
+        return null;
     }
 
     public function log($e){
