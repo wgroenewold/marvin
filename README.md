@@ -60,6 +60,7 @@
     - ~~db_structure.sql aanpassen~~
     - ~~.env.example aanpassen~~    
 - ~~Release v0.3~~
+! Capture text input
 - Meta table maken voor users          
 - Draw results on grafana dashboard.
 
