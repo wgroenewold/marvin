@@ -21,7 +21,10 @@ if($input){
 
             $instance->db->create('messages', $args);
 
-            $text = trim(array_rand(explode(',', getenv('SUBSCRIBE_CONFIRMATIONS'))));
+            $text = explode(',', getenv('SUBSCRIBE_CONFIRMATIONS'));
+            $key = array_rand($text);
+            $text = $text[$key];
+            $text = trim($text);
 
             $instance->slack->send('https://slack.com/api/chat.postMessage', array(
                 'token' => getenv('SLACK_TOKEN'),
@@ -32,29 +35,3 @@ if($input){
     }
     return null;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//receive php://input
-//data
-//filter messages from user
-//send to db
-//callback (SUBSCRIBE_CONFIRMATIONS)
