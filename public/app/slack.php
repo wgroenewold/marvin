@@ -168,27 +168,26 @@ class marvin_slack{
                                     );
                             break;
                         case 'tags_1':
-                        case 'tags_2':
-                            $table = 'emotions';
-                            if(isset($decode['actions']['value']) && $decode['actions']['value'] == 'tags_decline'){
-                                $data = array(array(
+                            //emotions
+                            $data = array();
+                            foreach($decode['actions']['selected_options'] as $tag){
+                                $id = explode('_', $tag['value']);
+                                $id = $id[1];
+                                $data[] = array(
                                     'user_id' => $decode['user']['id'],
-                                    'tag_id' => 0,
+                                    'tag_id' => $id,
                                     'created_at' => date('Y-m-d H:i:s'),
-                                ));
-                            }else{
-                                $data = array();
-                                foreach($decode['actions']['selected_options'] as $tag){
-                                    $id = explode('_', $tag['value']);
-                                    $id = $id[1];
-                                    $data[] = array(
-                                        'user_id' => $decode['user']['id'],
-                                        'tag_id' => $id,
-                                        'created_at' => date('Y-m-d H:i:s'),
-                                    );
-                                }
+                                );
                             }
-
+                            break;
+                        case 'tags_2':
+                            //decline
+                            $table = 'emotions';
+                            $data = array(array(
+                                'user_id' => $decode['user']['id'],
+                                'tag_id' => 0,
+                                'created_at' => date('Y-m-d H:i:s'),
+                            ));
                             break;
                         default:
                             return false;
