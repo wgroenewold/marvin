@@ -12,7 +12,7 @@ if($input){
         var_dump($input);
     }else{
         //filter bot messages
-        if(isset($data['event']['username']) == false){
+        if(isset($data['event']['username']) == false && (isset($data['event']['message']['username']) && $data['event']['username'] != 'marvin')){
             $args = array(
                 'text' => $data['event']['text'],
                 'channel' => $data['event']['channel'],
@@ -22,6 +22,7 @@ if($input){
             $instance->db->create('messages', $args);
 
             $text = explode(',', getenv('SUBSCRIBE_CONFIRMATIONS'));
+
             $key = array_rand($text);
             $text = $text[$key];
             $text = trim($text);
@@ -35,3 +36,7 @@ if($input){
     }
     return null;
 }
+
+//filter is nog niet helemaal fris
+
+//event.message.username != 'Marvin' event.username != Marvin
