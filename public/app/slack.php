@@ -170,7 +170,7 @@ class marvin_slack{
                             //emotions
                             $data = array();
                             $table = 'emotions';
-                            foreach($decode['actions']['selected_options'] as $tag){
+                            foreach($decode['actions'][0]['selected_options'] as $tag){
                                 $id = explode('_', $tag['value']);
                                 $id = $id[1];
                                 $data[] = array(
