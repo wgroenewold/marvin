@@ -148,8 +148,7 @@ class marvin_slack{
         if($input){
             if(strpos($input, 'payload') !== false){
                 $input = urldecode($input);
-                $input = explode('=', $input);
-                $input = $input[1];
+                $input = substr($input,8);
                 $decode = json_decode($input, true);
 
                 if(!empty($decode)){

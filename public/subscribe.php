@@ -14,6 +14,7 @@ if($input){
         //filter bot messages
         if($data['event']['username'] !== 'Marvin' && $data['event']['message']['username'] !== 'Marvin'){
             $args = array(
+                'user_id' => $data['event']['user'],
                 'text' => $data['event']['text'],
                 'channel' => $data['event']['channel'],
                 'created_at' => date('Y-m-d H:i:s'),
