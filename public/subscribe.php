@@ -30,7 +30,7 @@ if($input){
             $instance->slack->send('https://slack.com/api/chat.postMessage', array(
                 'token' => getenv('SLACK_TOKEN'),
                 'channel' => $data['event']['channel'],
-                'text' => isset($data['event']['username']),
+                'text' => $text,
             ));
         }
     }
