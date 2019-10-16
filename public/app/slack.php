@@ -169,6 +169,7 @@ class marvin_slack{
                         case 'tags_1':
                             //emotions
                             $data = array();
+                            $table = 'emotions';
                             foreach($decode['actions']['selected_options'] as $tag){
                                 $id = explode('_', $tag['value']);
                                 $id = $id[1];
