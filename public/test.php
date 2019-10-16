@@ -42,7 +42,9 @@ $instance->db->create('expiration', array(
     'created_at' => date('Y-m-d'),
 ));
 
+$data['event']['username'] = 'Marvin';
 
+//var_dump(isset($data['event']['username']));
 
 
 
