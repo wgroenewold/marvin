@@ -8,6 +8,7 @@ use GuzzleHttp\Exception\TransferException;
  */
 
 class marvin_slack{
+<<<<<<< HEAD
     private $token;
     private $db;
 
@@ -121,6 +122,13 @@ class marvin_slack{
             'Content-type' => 'application/json; charset=utf-8',
             'Authorization' => 'Bearer ' . $this->token,
         )]);
+=======
+    public function __construct(){
+    }
+
+    public function send($uri, $data){
+        $instance = new GuzzleHttp\Client();
+>>>>>>> parent of 6cdf8d5... Extended Slack and DB options
 
         try{
             $result = $instance->post($uri, ['json' => $data]);
@@ -134,7 +142,12 @@ class marvin_slack{
             }
         }
         catch(TransferException $e){
+<<<<<<< HEAD
             $this->log($e);
+=======
+            //@todo log an error, so make a logging thing.
+            echo 'stuk';
+>>>>>>> parent of 6cdf8d5... Extended Slack and DB options
         }
 
         return null;
@@ -211,6 +224,7 @@ class marvin_slack{
         }
         return null;
     }
+<<<<<<< HEAD
 
     public function log($e){
         $file = getenv('LOG_FILE');
@@ -218,4 +232,6 @@ class marvin_slack{
         $current .= serialize($e) . "\n";
         file_put_contents($file, $current);
     }
+=======
+>>>>>>> parent of 6cdf8d5... Extended Slack and DB options
 }

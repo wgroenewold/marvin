@@ -37,6 +37,7 @@
 - ~~Send dialog.json to Slack.~~ 
 - ~~Use Guzzle to send POST request~~
 - ~~Catch callback from buttons - https://api.slack.com/messaging/interactivity~~
+<<<<<<< HEAD
 - ~~Use Medoo https://medoo.in/api/new to write catches to db (stamped!)~~
 - ~~Alles nog aan elkaar beunen en voorzien van wat leuke grapjes enzo.~~
 - ~~Dotenv implementeren~~
@@ -63,6 +64,10 @@
 ! Capture text input
 - Meta table maken voor users          
 - Draw results on grafana dashboard.
+=======
+- Use Medoo https://medoo.in/api/new to write catches to db (stamped!)
+- Draw results on grafana dashboard 
+>>>>>>> parent of 6cdf8d5... Extended Slack and DB options
 
 #### Why is it called Marvin?
 Because [HHGTTG](https://en.wikipedia.org/wiki/Marvin_the_Paranoid_Android)
