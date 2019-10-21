@@ -7,11 +7,18 @@ use Medoo\Medoo;
  */
 
 class marvin_db{
-    private $con;
+    private $connection;
+    private $db_type;
+    private $db_name;
+    private $db_server;
+    private $db_user;
+    private $db_pass;
+    private $db_charset;
+    private $db_collation;
+    private $db_port;
 
 
     public function __construct(){
-<<<<<<< HEAD
         $this->db_type = getenv('DB_TYPE');
         $this->db_name = getenv('DB_NAME');
         $this->db_server = getenv('DB_SERVER');
@@ -30,61 +37,31 @@ class marvin_db{
             'charset' => $this->db_charset,
             'collation' => $this->db_collation,
             'port' => $this->db_port,
-=======
-        $this->con = new Medoo([
-            // required
-            'database_type' => 'mysql',
-            'database_name' => 'marvin',
-            'server' => 'localhost',
-            'username' => 'marvin',
-            'password' => 'QR1iUWA6XhLrb8_8b1Y0265IDOit',
-
-            // [optional]
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_general_ci',
-            'port' => 3306,
-
-            // [optional] Table prefix
-
-            // [optional] Enable logging (Logging is disabled by default for better performance)
->>>>>>> parent of 6cdf8d5... Extended Slack and DB options
             'logging' => true,
-
-            // [optional] MySQL socket (shouldn't be used with server and port)
-//            'socket' => '/tmp/mysql.sock',
-
-            // [optional] driver_option for connection, read more from http://www.php.net/manual/en/pdo.setattribute.php
-//            'option' => [
-//                PDO::ATTR_CASE => PDO::CASE_NATURAL
-//            ],
-
-            // [optional] Medoo will execute those commands after connected to the database for initialization
-//            'command' => [
-//                'SET SQL_MODE=ANSI_QUOTES'
-//            ]
         ]);
     }
 
-    public function create(){
-        $this->con->insert("results", [
-            "user_id" => "foo",
-            "score" => "10",
-            "created_at" => date("Y-m-d H:i:s"),
-        ]);
+    /*
+     * Insert into DB. Data is assoc array with key as column.
+     */
 
-        return $this->con->id();
+    public function create($table, $data){
+        $this->connection->insert($table, $data);
+
+        return $this->connection->id();
     }
 
-    public function read(){
-
+    public function read($table, $columns, $where = null){
+        $data = $this->connection->select($table, $columns, $where);
+        return $data;
     }
 
-    public function update(){
-        //not needed yet
+    public function update($table, $data, $where = null){
+        $this->connection->update($table, $data, $where);
     }
 
-    public function delete(){
-        //not needed yet
+    public function delete($table, $where){
+        $this->connection->delete($table, $where);
     }
 
     public function avg($table, $column, $where = null){

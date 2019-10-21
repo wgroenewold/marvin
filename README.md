@@ -67,7 +67,6 @@
 =======
 - Use Medoo https://medoo.in/api/new to write catches to db (stamped!)
 - Draw results on grafana dashboard 
->>>>>>> parent of 6cdf8d5... Extended Slack and DB options
 
 #### Why is it called Marvin?
 Because [HHGTTG](https://en.wikipedia.org/wiki/Marvin_the_Paranoid_Android)
