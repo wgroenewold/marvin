@@ -33,6 +33,9 @@
 
 - Setup random trigger to ```cron.php``` with cron (you could use ```crontab.sh``` to simplify this for yourself)
 
+## I can haz demo?
+https://youtu.be/Je0Pg8ITvu8
+
 ## Todo:
 - ~~Send dialog.json to Slack.~~ 
 - ~~Use Guzzle to send POST request~~
@@ -61,12 +64,7 @@
     - ~~db_structure.sql aanpassen~~
     - ~~.env.example aanpassen~~    
 - ~~Release v0.3~~
-! Capture text input
-- Meta table maken voor users          
-- Draw results on grafana dashboard.
-=======
-- Use Medoo https://medoo.in/api/new to write catches to db (stamped!)
-- Draw results on grafana dashboard 
+- ~~Capture text input~~
 
 #### Why is it called Marvin?
 Because [HHGTTG](https://en.wikipedia.org/wiki/Marvin_the_Paranoid_Android)
@@ -75,4 +73,6 @@ Because [HHGTTG](https://en.wikipedia.org/wiki/Marvin_the_Paranoid_Android)
 Because [This is Spinal Tap](https://www.youtube.com/watch?v=KOO5S4vxi0o) 
  
 ## Someday: 
+- Meta table maken voor users          
+- Draw results on grafana dashboard.
 - Replace MySQL with InfluxDB for better performance/scalability. 
