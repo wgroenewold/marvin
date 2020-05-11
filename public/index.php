@@ -3,8 +3,6 @@
 require_once('marvin.class.php');
 
 $instance = marvin::instance();
-$test = $instance->db->create();
-
 
 $data = $instance->slack->receive();
 
@@ -71,6 +69,3 @@ if($data && is_array($data)){
     //remove expiration from db
     $instance->db->delete("expiration", ["ts" => $data['container']['message_ts']]);
 }
-
-var_dump($test);
-
