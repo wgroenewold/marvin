@@ -13,7 +13,13 @@ $channels = $instance->slack->list_channels();
 
 //send initial message (1-11)
 foreach($channels as $channel){
-    $instance->slack->create_msg($balloon_txt, $blocks, $channel, 'https://slack.com/api/chat.postMessage');
+    $response = $instance->slack->create_msg($balloon_txt, $blocks, $channel, 'https://slack.com/api/chat.postMessage');
+
+    $instance->db->create('expiration', array(
+		'ts' => $response['ts'],
+		'channel' => $response['channel'],
+		'created_at' => date('Y-m-d'),
+	));
 }
 
 //chat.update all old ones as expired
@@ -33,11 +39,3 @@ foreach($expired as $value){
 
 //delete all entries
 $instance->db->delete("expiration", ["created_at[<]" => date("Y-m-d")]);
-
-//make new entry
-$instance->db->create('expiration', array(
-    'ts' => $response['ts'],
-    'channel' => $response['channel'],
-    'created_at' => date('Y-m-d'),
-));
-

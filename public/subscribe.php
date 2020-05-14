@@ -21,6 +21,7 @@ if($input){
             );
 
             $instance->db->create('messages', $args);
+			//@todo fix 3, hier die zooi naar mail pipen
 
             $text = explode(',', getenv('SUBSCRIBE_CONFIRMATIONS'));
 
