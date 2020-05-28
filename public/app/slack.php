@@ -152,8 +152,6 @@ class marvin_slack{
                 $decode = json_decode($input, true);
 
                 if(!empty($decode)){
-                    //hier splitsen
-
                     switch($decode['actions'][0]['block_id']){
                         case 'score_1':
                         case 'score_2':

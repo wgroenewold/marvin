@@ -22,6 +22,10 @@ if($input){
 
             $instance->db->create('messages', $args);
 			//@todo fix 3, hier die zooi naar mail pipen
+			//@todo user lookup tabel maken of uit Slack API halen?
+
+	        $instance->mail->create($args);
+
 
             $text = explode(',', getenv('SUBSCRIBE_CONFIRMATIONS'));
 
