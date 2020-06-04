@@ -37,6 +37,11 @@
 
 - Setup random trigger to ```cron.php``` with cron (you could use ```crontab.sh``` to simplify this for yourself)
 
+## Functions
+- Ask at random moment every workday for job satisfaction.
+- Ask for "work emotions"
+- Receive messages and pipe those to a mailbox
+
 ## I can haz demo?
 https://youtu.be/Je0Pg8ITvu8
 
@@ -58,7 +63,7 @@ https://youtu.be/Je0Pg8ITvu8
 - ~~Remove stuff about channels from README.md~~
 - ~~Say something about scope in Slack~~
 - ~~Release v0.2~~
-- Add option for tags
+- ~~Add option for tags~~
     - ~~Load tags.json~~
     - ~~die tags.json maken met de db, dan kan je dat leidend houden~~
     - ~~Make trigger connected to prev results~~
@@ -69,6 +74,7 @@ https://youtu.be/Je0Pg8ITvu8
     - ~~.env.example aanpassen~~    
 - ~~Release v0.3~~
 - ~~Capture text input~~
+- ~~Meta table maken voor users~~  
 
 #### Why is it called Marvin?
 Because [HHGTTG](https://en.wikipedia.org/wiki/Marvin_the_Paranoid_Android)
@@ -76,7 +82,5 @@ Because [HHGTTG](https://en.wikipedia.org/wiki/Marvin_the_Paranoid_Android)
 #### Why is the scale 1-11?
 Because [This is Spinal Tap](https://www.youtube.com/watch?v=KOO5S4vxi0o) 
  
-## Someday: 
-- Meta table maken voor users          
+## Someday:         
 - Draw results on grafana dashboard.
-- Replace MySQL with InfluxDB for better performance/scalability. 
