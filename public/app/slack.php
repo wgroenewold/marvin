@@ -230,7 +230,7 @@ class marvin_slack{
 		    foreach($response['members'] as $value){
 		    	if($value['deleted'] !== true){
 				    $data[] = array(
-				    	'id' => $value['id'],
+				    	'user_id' => $value['id'],
 					    'name' => $value['profile']['real_name'],
 					    'email' => $value['profile']['email']
 				    );
