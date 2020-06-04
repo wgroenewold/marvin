@@ -216,4 +216,28 @@ class marvin_slack{
         $current .= serialize($e) . "\n";
         file_put_contents($file, $current);
     }
+
+    public function list_users(){
+	    $data = array();
+
+	    $args = array(
+		    'token' => $this->token,
+	    );
+
+	    $response = $this->get('https://slack.com/api/users.list', $args);
+
+	    if($response && $response['ok'] == true){
+		    foreach($response['members'] as $value){
+		    	if($value['deleted'] !== true){
+				    $data[] = array(
+				    	'id' => $value['id'],
+					    'name' => $value['profile']['real_name'],
+					    'email' => $value['profile']['email']
+				    );
+			    }
+		    }
+	    }
+
+	    return $data;
+    }
 }

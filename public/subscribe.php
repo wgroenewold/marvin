@@ -13,31 +13,47 @@ if($input){
     }else{
         //filter bot messages
         if($data['event']['username'] !== 'Marvin' && $data['event']['message']['username'] !== 'Marvin'){
-            $args = array(
-                'user_id' => $data['event']['user'],
-                'text' => $data['event']['text'],
-                'channel' => $data['event']['channel'],
-                'created_at' => date('Y-m-d H:i:s'),
-            );
+        	switch($data['event']['type']){
+		        case 'user_change':
+					$user = $data['event']['user'];
 
-            $instance->db->create('messages', $args);
-			//@todo fix 3, hier die zooi naar mail pipen
-			//@todo user lookup tabel maken of uit Slack API halen?
+		        	$args = array(
+						'user_id' => $user['id'],
+				        'name' => $user['profile']['real_name'],
+				        'email' => $user['profile']['email'],
+			        );
 
-	        $instance->mail->create($args);
+		        	$where = ["user_id" => 200];
+
+			        $instance->db->update('messages', $args, $where);
+
+			        break;
+		        case 'message':
+			        $args = array(
+				        'user_id' => $data['event']['user'],
+				        'text' => $data['event']['text'],
+				        'channel' => $data['event']['channel'],
+				        'created_at' => date('Y-m-d H:i:s'),
+			        );
+
+			        $instance->db->create('messages', $args);
+			        $instance->mail->create($args);
 
 
-            $text = explode(',', getenv('SUBSCRIBE_CONFIRMATIONS'));
+			        $text = explode(',', getenv('SUBSCRIBE_CONFIRMATIONS'));
 
-            $key = array_rand($text);
-            $text = $text[$key];
-            $text = trim($text);
+			        $key = array_rand($text);
+			        $text = $text[$key];
+			        $text = trim($text);
 
-            $instance->slack->send('https://slack.com/api/chat.postMessage', array(
-                'token' => getenv('SLACK_TOKEN'),
-                'channel' => $data['event']['channel'],
-                'text' => $text,
-            ));
+			        $instance->slack->send('https://slack.com/api/chat.postMessage', array(
+				        'token' => getenv('SLACK_TOKEN'),
+				        'channel' => $data['event']['channel'],
+				        'text' => $text,
+			        ));
+			        break;
+		        default:
+	        }
         }
     }
 }
