@@ -8,6 +8,7 @@ require_once('app/db.php');
 require_once('app/score.php');
 require_once('app/tags.php');
 require_once('app/mail.php');
+require_once('app/users.php');
 
 setlocale(LC_ALL, 'nl_NL');
 
@@ -43,5 +44,6 @@ class marvin
         $this->score = new marvin_score();
         $this->tags = new marvin_tags();
         $this->mail = new marvin_mail();
+        $this->users = new marvin_users();
     }
 }

@@ -14,7 +14,7 @@ class marvin_mail{
 
 	public function create($args){
 		$message = str_replace(array('{USER}', '{MESSAGE}'), array($args['user_id'], $args['text']), $this->message);
-
+		//@todo reply-to setten op basis van user lookup
 		$data = array(
 //			'replyto' => '',
 			'message' => $message,

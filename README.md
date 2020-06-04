@@ -14,11 +14,15 @@
 - Activate [incoming webhooks](https://api.slack.com/apps/YOURAPPID/incoming-webhooks)
 - Create dialog with [Block Kit Builder](https://api.slack.com/tools/block-kit-builder) and dump in ```dialog.json```
 - Set scope with [OAuth & Permissions](https://api.slack.com/apps/AKRSMC3FY/oauth)
-    - chat:write:bot
-    - im:write
+    - channels:read
+    - chat:write
+    - groups:read
+    - im:history
+    - im:read
     - incoming-webhook
-    - bot
+    - mpim:read
     - users:read
+    - users:read:email
 
 - Setup [interactive components](https://api.slack.com/apps/YOURAPPID/interactive-messages)       
 - Rename ```.env.example``` to ```.env``` and fill with your settings. You can use several template-vars to make responses pretty:
