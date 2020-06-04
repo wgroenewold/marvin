@@ -6,7 +6,6 @@
 
 class marvin_mail{
 	public function __construct(){
-		$this->mail = new marvin_mail();
 		$this->email = getenv('MAIL_ADDRESS');
 		$this->subject = getenv('MAIL_SUBJECT');
 		$this->message = getenv('MAIL_MESSAGE');
