@@ -12,7 +12,6 @@ if($input){
         var_dump($input);
     }else{
         //filter bot messages
-        if($data['event']['username'] !== 'Marvin' && $data['event']['message']['username'] !== 'Marvin'){
         	switch($data['event']['type']){
 		        case 'user_change':
 					$user = $data['event']['user'];
@@ -29,31 +28,33 @@ if($input){
 
 			        break;
 		        case 'message':
-			        $args = array(
-				        'user_id' => $data['event']['user'],
-				        'text' => $data['event']['text'],
-				        'channel' => $data['event']['channel'],
-				        'created_at' => date('Y-m-d H:i:s'),
-			        );
+			        if($data['event']['username'] !== 'Marvin' && $data['event']['message']['username'] !== 'Marvin') {
 
-			        $instance->db->create('messages', $args);
-			        $instance->mail->create($args);
+				        $args = array(
+					        'user_id'    => $data['event']['user'],
+					        'text'       => $data['event']['text'],
+					        'channel'    => $data['event']['channel'],
+					        'created_at' => date( 'Y-m-d H:i:s' ),
+				        );
+
+				        $instance->db->create( 'messages', $args );
+				        $instance->mail->create( $args );
 
 
-			        $text = explode(',', getenv('SUBSCRIBE_CONFIRMATIONS'));
+				        $text = explode( ',', getenv( 'SUBSCRIBE_CONFIRMATIONS' ) );
 
-			        $key = array_rand($text);
-			        $text = $text[$key];
-			        $text = trim($text);
+				        $key  = array_rand( $text );
+				        $text = $text[ $key ];
+				        $text = trim( $text );
 
-			        $instance->slack->send('https://slack.com/api/chat.postMessage', array(
-				        'token' => getenv('SLACK_TOKEN'),
-				        'channel' => $data['event']['channel'],
-				        'text' => $text,
-			        ));
+				        $instance->slack->send( 'https://slack.com/api/chat.postMessage', array(
+					        'token'   => getenv( 'SLACK_TOKEN' ),
+					        'channel' => $data['event']['channel'],
+					        'text'    => $text,
+				        ) );
+			        }
 			        break;
 		        default:
 	        }
         }
-    }
 }
