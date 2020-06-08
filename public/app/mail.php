@@ -37,7 +37,7 @@ class marvin_mail{
 	}
 
 	public function send($args){
-		$headers = 'From: marvin@services.ghonline.nl' . "\r\n" .
+		$headers = 'From: Marvin <marvin@services.ghonline.nl>' . "\r\n" .
 		           'Reply-To: ' . $args['replyto'] . "\r\n" .
 		           'X-Mailer: PHP/' . phpversion();
 

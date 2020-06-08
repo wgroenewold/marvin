@@ -14,22 +14,22 @@ if($input){
         //filter bot messages
         	switch($data['event']['type']){
 		        case 'user_change':
-					$user = $data['event']['user'];
+		        	if($data['event']['user']['name'] !== 'marvin'){
+				        $user = $data['event']['user'];
 
-		        	$args = array(
-						'user_id' => $user['id'],
-				        'name' => $user['profile']['real_name'],
-				        'email' => $user['profile']['email'],
-			        );
+				        $args = array(
+					        'user_id' => $user['id'],
+					        'name' => $user['profile']['real_name'],
+					        'email' => $user['profile']['email'],
+				        );
 
-		        	$where = ["user_id" => 200];
+				        $where = ["user_id" => $user['id']];
 
-			        $instance->db->update('messages', $args, $where);
-
+				        $instance->db->update('messages', $args, $where);
+			        }
 			        break;
 		        case 'message':
-			        if($data['event']['username'] !== 'Marvin' && $data['event']['message']['username'] !== 'Marvin') {
-
+			        if($data['event']['username'] !== 'Marvin' && $data['event']['message']['username'] !== 'Marvin' && $data['event']['type']['subtype'] !== 'bot_message') {
 				        $args = array(
 					        'user_id'    => $data['event']['user'],
 					        'text'       => $data['event']['text'],
