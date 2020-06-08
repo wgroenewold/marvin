@@ -29,14 +29,14 @@ if($input){
 			        }
 			        break;
 		        case 'message':
-		        	    if($data['type'] !== 'event_callback'){
+		        	    if(array_key_exists('bot_id', $data['event']) === false){
 				            $args = array(
 					            'user_id'    => $data['event']['user'],
 					            'text'       => $data['event']['text'],
 					            'channel'    => $data['event']['channel'],
 					            'created_at' => date( 'Y-m-d H:i:s' ),
 				            );
-				            
+
 //                          $instance->db->create( 'messages', $args );
 //					        $instance->mail->create( $args );
 
