@@ -22,14 +22,14 @@ class marvin_mail{
 			foreach($match_array as $item){
 				$user_id = $item[1];
 				$text_user = $instance->db->read('users', ['name'], ['user_id' => $user_id]);
-				$msg = str_replace($item[0], $text_user['name'], $msg);
+				$msg = str_replace($item[0], $text_user[0]['name'], $msg);
 			}
 		}
 
-		$message = str_replace(array('{USER}', '{MESSAGE}'), array($user['name'], $msg), $this->message);
+		$message = str_replace(array('{USER}', '{MESSAGE}'), array($user[0]['name'], $msg), $this->message);
 
 		$data = array(
-			'replyto' => $user['email'],
+			'replyto' => $user[0]['email'],
 			'message' => $message,
 			);
 
