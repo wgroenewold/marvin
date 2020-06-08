@@ -29,30 +29,29 @@ if($input){
 			        }
 			        break;
 		        case 'message':
-			        if($data['event']['username'] !== 'Marvin' && $data['event']['message']['username'] !== 'Marvin' && $data['event']['type']['subtype'] !== 'bot_message') {
-				        $args = array(
-					        'user_id'    => $data['event']['user'],
-					        'text'       => $data['event']['text'],
-					        'channel'    => $data['event']['channel'],
-					        'created_at' => date( 'Y-m-d H:i:s' ),
-				        );
+		        	    if($data['type'] !== 'event_callback'){
+				            $args = array(
+					            'user_id'    => $data['event']['user'],
+					            'text'       => $data['event']['text'],
+					            'channel'    => $data['event']['channel'],
+					            'created_at' => date( 'Y-m-d H:i:s' ),
+				            );
+				            
+//                          $instance->db->create( 'messages', $args );
+//					        $instance->mail->create( $args );
 
-				        $instance->db->create( 'messages', $args );
-				        $instance->mail->create( $args );
+                            $text = explode( ',', getenv( 'SUBSCRIBE_CONFIRMATIONS' ) );
 
+                            $key  = array_rand( $text );
+                            $text = $text[ $key ];
+                            $text = trim( $text );
 
-				        $text = explode( ',', getenv( 'SUBSCRIBE_CONFIRMATIONS' ) );
-
-				        $key  = array_rand( $text );
-				        $text = $text[ $key ];
-				        $text = trim( $text );
-
-				        $instance->slack->send( 'https://slack.com/api/chat.postMessage', array(
-					        'token'   => getenv( 'SLACK_TOKEN' ),
-					        'channel' => $data['event']['channel'],
-					        'text'    => $text,
-				        ) );
-			        }
+                            $instance->slack->send( 'https://slack.com/api/chat.postMessage', array(
+                                'token'   => getenv( 'SLACK_TOKEN' ),
+                                'channel' => $data['event']['channel'],
+                                'text'    => $text,
+                            ) );
+			            }
 			        break;
 		        default:
 	        }
