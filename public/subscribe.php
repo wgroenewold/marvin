@@ -29,7 +29,7 @@ if($input){
 			        }
 			        break;
 		        case 'message':
-					if(array_key_exists('bot_id', $data['event']) === false){
+					if(array_key_exists('bot_id', $data['event']) === false || (array_key_exists('subtype', $data['event']) && $data['event']['subtype'] == 'message_changed')){
 					        $args = array(
 					            'user_id'    => $data['event']['user'],
 					            'text'       => $data['event']['text'],
